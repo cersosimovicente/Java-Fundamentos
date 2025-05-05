@@ -1,7 +1,10 @@
 name: Basic Workflow
+
 on:
   push:
-    branches: feature/basic-workflow
+    branches:
+      - feature/basic-workflow
+
 jobs:
   do-things:
     name: Do Things
@@ -9,7 +12,8 @@ jobs:
     steps:
       - name: La cosa que he hecho
         run: echo "¡He hecho una cosa!"
+
       - name: Un error que cometí
-        run: 
+        run: |
           echo "¡He cometido un error!"
           exit 1
