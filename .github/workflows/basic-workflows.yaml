@@ -1,1 +1,29 @@
+name: Basic Workflow
+# Nombre descriptivo del flujo de trabajo. En este caso, se llama "Basic Workflow".
+
+on:
+  # Define los eventos que activarán este flujo de trabajo. 
+  push:
+    # Se activará cuando se haga un "push" (se suban cambios) al repositorio.
+    branches:
+      # Especifica en qué ramas los "pushes" activarán este flujo de trabajo.
+      - feature/basic-workflow
+        # Solo los "pushes" a la rama "feature/basic-workflow" iniciarán este flujo.
+
+jobs:
+  # Define los trabajos (tareas) que se ejecutarán en este flujo de trabajo.
+  do-things:
+    # Define un trabajo específico llamado "do-things".(opcional)
+    name: Do Things
+    # Le da un nombre más legible al trabajo que aparecerá en la interfaz de GitHub Actions.
+    runs-on: ubuntu-latest
+    # Especifica el tipo de máquina virtual en la que se ejecutará este trabajo.
+    # "ubuntu-latest" indica la última versión de Ubuntu disponible.
+    steps:
+      # Define la secuencia de pasos que se ejecutarán dentro de este trabajo.
+      - name: La cosa que he hecho
+        # Le da un nombre descriptivo a este paso.
+        run: echo "¡He hecho una cosa!"
+        # Define el comando que se ejecutará en este paso.
+        # En este caso, simplemente imprime el mensaje "¡He hecho una cosa!" en la consola.
 
