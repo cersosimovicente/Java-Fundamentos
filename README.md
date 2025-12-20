@@ -170,3 +170,81 @@ Debes tener mucho cuidado al configurar estas dos variables, ya que un solo erro
 #### Advertencia sobre la sesión de la consola
 No cierres este símbolo del sistema.
 Si lo cierras y lo vuelves a abrir, deberás volver a crear las variables JAVA_HOME y PATH, ya que estos comandos solo aplican a la sesión actual de la consola.
+
+
+# Configuración de un JDK para Linux/x64
+
+Descarguemos la versión para **Linux**. Obtendrás un archivo comprimido con extensión `.tar.gz` que debes expandir.
+
+Para expandirlo, copia o mueve el archivo al directorio correcto y luego escribe el siguiente comando:
+
+```bash
+tar xzf *.tar.gz
+```
+
+> **Nota:**  
+> El carácter inicial `$` solo indica que debes escribir el comando en la terminal.  
+> No debes escribir ni copiar ese carácter, ya que no forma parte del comando `tar`.
+
+Este comando expande todos los archivos con extensión `.tar.gz` que se encuentren en el directorio actual.  
+Puedes usar el nombre exacto del archivo si solo necesitas expandir uno.
+
+La ejecución de este comando puede tardar varios segundos o más, según el sistema.  
+Al finalizar, se crea un nuevo directorio en el directorio actual con el contenido del JDK.
+
+## Configuración de la variable de entorno JAVA_HOME (Linux)
+
+Una vez hecho esto, debes crear una variable de entorno `JAVA_HOME` que apunte al directorio donde expandiste el JDK.
+
+Si expandiste un JDK 25 en el directorio `/home/javauser/jdk`, el comando que debes escribir es:
+
+```bash
+export JAVA_HOME=/home/javauser/jdk/jdk-25
+```
+
+Puedes comprobar que la variable `JAVA_HOME` se ha configurado correctamente escribiendo:
+
+```bash
+echo $JAVA_HOME
+```
+
+## Configuración de la variable PATH (Linux)
+
+```bash
+export PATH=$JAVA_HOME/bin:$PATH
+```
+
+No cierres este intérprete de comandos.  
+Si lo cierras y lo vuelves a abrir, deberás volver a crear estas dos variables.
+
+## Verificación de la instalación en Linux
+
+```bash
+which java
+```
+
+## Configuración de un JDK para macOS
+
+Descarga la versión para **macOS** y expande el archivo `.tar.gz`:
+
+```bash
+tar xzf *.tar.gz
+```
+
+## Configuración de la variable JAVA_HOME (macOS)
+
+```bash
+export JAVA_HOME=/Users/javauser/jdk/jdk-25.jdk/Contents/Home
+```
+
+## Configuración de la variable PATH (macOS)
+
+```bash
+export PATH=$JAVA_HOME/bin:$PATH
+```
+
+## Verificación de la instalación en macOS
+
+```bash
+which java
+```
