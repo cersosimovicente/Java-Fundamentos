@@ -97,4 +97,76 @@ Es posible que hayas oído hablar de otros componentes que también se denominan
 - ❌ **No es necesario** para compilar y ejecutar la aplicación sencilla que estamos creando en este tutorial
 
 > Java EE queda fuera del alcance de este tutorial.
+> 
+# Configuración de un Kit de Desarrollo de Java (JDK)
+Podes descargar el JDK desde diferentes sitios. Existe una página que siempre te remite a la **última versión del JDK**:
+ https://jdk.java.net/
 
+Al seleccionar la última versión del JDK **“Listo para usar”**, accederás a una página donde podrás descargar la versión del JDK que necesitas según tu sistema operativo.
+
+## Versiones disponibles
+
+Desde esta página puedes descargar las siguientes versiones:
+
+- Linux/AArch64  
+- Linux/x64  
+- macOS/x64  
+- macOS/AArch64  
+- Windows/x64  
+
+Esta página proporciona **compilaciones de código abierto listas para producción** del *Java Development Kit*, una implementación de la plataforma **Java SE** bajo la **Licencia Pública General GNU, versión 2**, con la **excepción Classpath**.
+
+---
+
+## Configuración de un JDK para Windows/x64
+
+Descarguemos la versión para **Windows/x64**.
+
+Al hacerlo, obtendrás un archivo **ZIP** de aproximadamente **200 MB**, que puedes abrir con cualquier utilidad de compresión ZIP.  
+Este archivo ZIP contiene el JDK completo.
+
+Podes **descomprimirlo en cualquier ubicación** de tu computadora.
+
+---
+
+## Configuración de la variable de entorno JAVA_HOME
+
+Una vez descomprimido el JDK, debes crear una **variable de entorno** llamada `JAVA_HOME` que apunte al directorio donde se encuentra el JDK.
+
+### Pasos
+
+1. Abre un **Símbolo del sistema**.
+2. Si descomprimiste el JDK 25 en el directorio `D:\jdk\`, escribe el siguiente comando:
+
+```bash
+set JAVA_HOME=D:\jdk\jdk-25
+```
+⚠️ Nota:
+En este ejemplo (y en los siguientes), el carácter inicial > solo indica que debes escribir el comando en la consola.
+No debes escribir ni copiar ese carácter, ya que no forma parte del comando set.
+
+## Verificación de la variable JAVA_HOME
+Puedes comprobar que la variable JAVA_HOME se ha configurado correctamente escribiendo el siguiente comando:
+```bash
+echo %JAVA_HOME%
+```
+Si la configuración es correcta, se mostrará en pantalla la ruta al directorio del JDK.
+
+Este comando debería imprimir lo siguiente:
+```sh
+D:\jdk\jdk-25
+```
+## Configuración de la variable de entorno PATH
+
+Luego, debes actualizar la variable de entorno `PATH` para agregar el directorio `bin` de tu JDK.  
+Esto se puede hacer con el siguiente comando:
+
+```bash
+set PATH=%JAVA_HOME%\bin;%PATH%
+```
+⚠️ Importante
+Debes tener mucho cuidado al configurar estas dos variables, ya que un solo error —como un espacio en blanco agregado o un punto y coma faltante— provocará una falla en la ejecución de los comandos de Java.
+
+#### Advertencia sobre la sesión de la consola
+No cierres este símbolo del sistema.
+Si lo cierras y lo vuelves a abrir, deberás volver a crear las variables JAVA_HOME y PATH, ya que estos comandos solo aplican a la sesión actual de la consola.
